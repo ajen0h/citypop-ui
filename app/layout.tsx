@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +18,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className={cn("relative min-h-screen p-6 h-screen w-full bg-gradient-to-t from-[#dc73da] to-[#0cc3f3]")}>
+          <main className=" font-sans antialiased max-w-7xl mx-auto" >
+            {children}
+          </main>
+        </div>
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+        />
+      </body>
     </html>
   );
 }
